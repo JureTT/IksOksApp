@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IksOks.MainPage"
+             Title="Iks-Oks">
+
+    <VerticalStackLayout Padding="20" Spacing="10" 
+                         VerticalOptions="Center" 
+                         HorizontalOptions="Center">
+
+        <!-- Naslov -->
+        <Label Text="IKS - OKS" 
+               FontSize="32" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <!-- Status igre -->
+        <Label x:Name="StatusLabel" 
+               Text="Na potezu je: X" 
+               FontSize="18"
+               HorizontalOptions="Center"/>
+
+        <!-- Ploča 3x3 -->
+        <Grid x:Name="Ploca" 
+              RowSpacing="5" 
+              ColumnSpacing="5"
+              Margin="0,20,0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Red 1 -->
+            <Button Grid.Row="0" Grid.Column="0" x:Name="B00" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="A1" BackgroundColor="LightGray"/>
+            <Button Grid.Row="0" Grid.Column="1" x:Name="B01" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="B1" BackgroundColor="LightGray"/>
+            <Button Grid.Row="0" Grid.Column="2" x:Name="B02" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="C1" BackgroundColor="LightGray"/>
+
+            <!-- Red 2 -->
+            <Button Grid.Row="1" Grid.Column="0" x:Name="B10" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="A2" BackgroundColor="LightGray"/>
+            <Button Grid.Row="1" Grid.Column="1" x:Name="B11" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="B2" BackgroundColor="LightGray"/>
+            <Button Grid.Row="1" Grid.Column="2" x:Name="B12" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="C2" BackgroundColor="LightGray"/>
+
+            <!-- Red 3 -->
+            <Button Grid.Row="2" Grid.Column="0" x:Name="B20" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="A3" BackgroundColor="LightGray"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="B21" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="B3" BackgroundColor="LightGray"/>
+            <Button Grid.Row="2" Grid.Column="2" x:Name="B22" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="C3" BackgroundColor="LightGray"/>
+        </Grid>
+
+        <!-- Gumb za restart -->
+        <Button Text="Nova igra" 
+                FontSize="18"
+                Clicked="OnNovaIgraClicked"
+                BackgroundColor="SteelBlue"
+                TextColor="White"
+                Padding="20,10"/>
+
+    </VerticalStackLayout>
+</ContentPage>

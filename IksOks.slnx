@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="IksOks/IksOks.csproj">
+    <Deploy Solution="Release|*" />
+  </Project>
+</Solution>
