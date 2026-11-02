@@ -1,17 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace IksOks
+﻿namespace IksOks
 {
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
-        }
-
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            return new Window(new AppShell());
+            MainPage = new NavigationPage(new MenuPage())
+            {
+                BarBackgroundColor = Color.FromArgb("#0a0a1a"),
+                BarTextColor = Color.FromArgb("#00d4ff")
+            };
         }
     }
 }

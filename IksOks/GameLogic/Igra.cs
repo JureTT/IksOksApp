@@ -143,5 +143,9 @@ namespace IksOks.GameLogic
             }
             return polje;
         }
+        public string DohvatiPolje(int red, int stupac)
+        {
+            return Mreza[red, stupac];
+        }
     }
 }

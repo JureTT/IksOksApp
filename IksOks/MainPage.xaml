@@ -2,29 +2,68 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IksOks.MainPage"
-             Title="Iks-Oks">
+             BackgroundColor="#0a0a1a">
 
-    <VerticalStackLayout Padding="20" Spacing="10" 
-                         VerticalOptions="Center" 
+    <VerticalStackLayout Padding="24" Spacing="0"
+                         VerticalOptions="Center"
                          HorizontalOptions="Center">
 
         <!-- Naslov -->
-        <Label Text="IKS - OKS" 
-               FontSize="32" 
+        <Label Text="IKS OKS"
+               FontSize="32"
                FontAttributes="Bold"
-               HorizontalOptions="Center"/>
+               HorizontalOptions="Center"
+               TextColor="#00d4ff"
+               CharacterSpacing="6"
+               Margin="0,0,0,4"/>
 
-        <!-- Status igre -->
-        <Label x:Name="StatusLabel" 
-               Text="Na potezu je: X" 
-               FontSize="18"
-               HorizontalOptions="Center"/>
+        <Label Text="GAMING EDITION"
+               FontSize="11"
+               HorizontalOptions="Center"
+               TextColor="#444466"
+               CharacterSpacing="3"
+               Margin="0,0,0,24"/>
 
-        <!-- Ploča 3x3 -->
-        <Grid x:Name="Ploca" 
-              RowSpacing="5" 
-              ColumnSpacing="5"
-              Margin="0,20,0,20">
+        <!-- Rezultati -->
+        <Grid ColumnSpacing="8" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" BackgroundColor="#0d0d2b" Stroke="#1e1e4a" StrokeThickness="1" StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Padding="10" HorizontalOptions="Center">
+                    <Label Text="IGRAČ X" FontSize="10" TextColor="#444466" CharacterSpacing="1" HorizontalOptions="Center"/>
+                    <Label x:Name="ScoreX" Text="0" FontSize="24" FontAttributes="Bold" TextColor="#00d4ff" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Grid.Column="1" BackgroundColor="#0d0d2b" Stroke="#1e1e4a" StrokeThickness="1" StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Padding="10" HorizontalOptions="Center">
+                    <Label Text="REMI" FontSize="10" TextColor="#444466" CharacterSpacing="1" HorizontalOptions="Center"/>
+                    <Label x:Name="ScoreDraw" Text="0" FontSize="24" FontAttributes="Bold" TextColor="#555577" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Grid.Column="2" BackgroundColor="#0d0d2b" Stroke="#1e1e4a" StrokeThickness="1" StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Padding="10" HorizontalOptions="Center">
+                    <Label Text="IGRAČ O" FontSize="10" TextColor="#444466" CharacterSpacing="1" HorizontalOptions="Center"/>
+                    <Label x:Name="ScoreO" Text="0" FontSize="24" FontAttributes="Bold" TextColor="#bf00ff" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+
+        <!-- Status -->
+        <Border BackgroundColor="#0d0d2b" Stroke="#222244" StrokeThickness="1" StrokeShape="RoundRectangle 10" Margin="0,0,0,20">
+            <VerticalStackLayout Padding="10,8" HorizontalOptions="Center">
+                <Label Text="NA POTEZU" FontSize="10" TextColor="#444466" CharacterSpacing="2" HorizontalOptions="Center"/>
+                <Label x:Name="StatusLabel" Text="IGRAČ X" FontSize="18" FontAttributes="Bold" TextColor="#00d4ff" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Border>
+
+        <!-- Ploča -->
+        <Grid RowSpacing="8" ColumnSpacing="8" Margin="0,0,0,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="100"/>
@@ -36,29 +75,45 @@
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Red 1 -->
-            <Button Grid.Row="0" Grid.Column="0" x:Name="B00" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="A1" BackgroundColor="LightGray"/>
-            <Button Grid.Row="0" Grid.Column="1" x:Name="B01" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="B1" BackgroundColor="LightGray"/>
-            <Button Grid.Row="0" Grid.Column="2" x:Name="B02" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="C1" BackgroundColor="LightGray"/>
+            <Button Grid.Row="0" Grid.Column="0" x:Name="B00" FontSize="36" FontAttributes="Bold" Clicked="OnPoljeClicked" CommandParameter="A1" BackgroundColor="#0d0d2b" BorderColor="#1e1e4a" BorderWidth="1" CornerRadius="12" TextColor="White"/>
+            <Button Grid.Row="0" Grid.Column="1" x:Name="B01" FontSize="36" FontAttributes="Bold" Clicked="OnPoljeClicked" CommandParameter="B1" BackgroundColor="#0d0d2b" BorderColor="#1e1e4a" BorderWidth="1" CornerRadius="12" TextColor="White"/>
+            <Button Grid.Row="0" Grid.Column="2" x:Name="B02" FontSize="36" FontAttributes="Bold" Clicked="OnPoljeClicked" CommandParameter="C1" BackgroundColor="#0d0d2b" BorderColor="#1e1e4a" BorderWidth="1" CornerRadius="12" TextColor="White"/>
 
-            <!-- Red 2 -->
-            <Button Grid.Row="1" Grid.Column="0" x:Name="B10" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="A2" BackgroundColor="LightGray"/>
-            <Button Grid.Row="1" Grid.Column="1" x:Name="B11" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="B2" BackgroundColor="LightGray"/>
-            <Button Grid.Row="1" Grid.Column="2" x:Name="B12" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="C2" BackgroundColor="LightGray"/>
+            <Button Grid.Row="1" Grid.Column="0" x:Name="B10" FontSize="36" FontAttributes="Bold" Clicked="OnPoljeClicked" CommandParameter="A2" BackgroundColor="#0d0d2b" BorderColor="#1e1e4a" BorderWidth="1" CornerRadius="12" TextColor="White"/>
+            <Button Grid.Row="1" Grid.Column="1" x:Name="B11" FontSize="36" FontAttributes="Bold" Clicked="OnPoljeClicked" CommandParameter="B2" BackgroundColor="#0d0d2b" BorderColor="#1e1e4a" BorderWidth="1" CornerRadius="12" TextColor="White"/>
+            <Button Grid.Row="1" Grid.Column="2" x:Name="B12" FontSize="36" FontAttributes="Bold" Clicked="OnPoljeClicked" CommandParameter="C2" BackgroundColor="#0d0d2b" BorderColor="#1e1e4a" BorderWidth="1" CornerRadius="12" TextColor="White"/>
 
-            <!-- Red 3 -->
-            <Button Grid.Row="2" Grid.Column="0" x:Name="B20" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="A3" BackgroundColor="LightGray"/>
-            <Button Grid.Row="2" Grid.Column="1" x:Name="B21" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="B3" BackgroundColor="LightGray"/>
-            <Button Grid.Row="2" Grid.Column="2" x:Name="B22" FontSize="36" Clicked="OnPoljeClicked" CommandParameter="C3" BackgroundColor="LightGray"/>
+            <Button Grid.Row="2" Grid.Column="0" x:Name="B20" FontSize="36" FontAttributes="Bold" Clicked="OnPoljeClicked" CommandParameter="A3" BackgroundColor="#0d0d2b" BorderColor="#1e1e4a" BorderWidth="1" CornerRadius="12" TextColor="White"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="B21" FontSize="36" FontAttributes="Bold" Clicked="OnPoljeClicked" CommandParameter="B3" BackgroundColor="#0d0d2b" BorderColor="#1e1e4a" BorderWidth="1" CornerRadius="12" TextColor="White"/>
+            <Button Grid.Row="2" Grid.Column="2" x:Name="B22" FontSize="36" FontAttributes="Bold" Clicked="OnPoljeClicked" CommandParameter="C3" BackgroundColor="#0d0d2b" BorderColor="#1e1e4a" BorderWidth="1" CornerRadius="12" TextColor="White"/>
         </Grid>
+        
+        <!-- Gumbi -->
+        <Grid RowSpacing="10" ColumnSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <!-- Gumb za restart -->
-        <Button Text="Nova igra" 
-                FontSize="18"
-                Clicked="OnNovaIgraClicked"
-                BackgroundColor="SteelBlue"
-                TextColor="White"
-                Padding="20,10"/>
+            <Button Grid.Row="0" Grid.Column="0" Text="NOVA IGRA" FontSize="13" FontAttributes="Bold" CharacterSpacing="1"
+            Clicked="OnNovaIgraClicked"
+            BackgroundColor="#00d4ff22" BorderColor="#00d4ff55" BorderWidth="1"
+            TextColor="#00d4ff" CornerRadius="10" Padding="0,14"/>
+
+            <Button Grid.Row="0" Grid.Column="1" Text="IZLAZ" FontSize="13" FontAttributes="Bold" CharacterSpacing="1"
+            Clicked="OnIzlazClicked"
+            BackgroundColor="#0d0d2b" BorderColor="#1e1e4a" BorderWidth="1"
+            TextColor="#444466" CornerRadius="10" Padding="0,14"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="PROMIJENI PROTIVNIKA" FontSize="13" FontAttributes="Bold" CharacterSpacing="1"
+            Clicked="OnPromijeniProtivnikaClicked"
+            BackgroundColor="#0d0d2b" BorderColor="#bf00ff55" BorderWidth="1"
+            TextColor="#bf00ff" CornerRadius="10" Padding="0,14"/>
+        </Grid>
 
     </VerticalStackLayout>
 </ContentPage>
